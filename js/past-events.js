@@ -1,8 +1,8 @@
 let contenedor = document.getElementById("container")
 
 function contenido(contenido) {
-    for (let event of events) {
-        if (event.date < currentDate) {
+    for (let event of data.events) {
+        if (event.date < data.currentDate) {
             contenido.innerHTML +=
                 `
             <div class=" colorDetexto card mb-3 p-0 rounded-5  bg-dark" style="max-width: 540px;">
