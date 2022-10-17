@@ -12,4 +12,18 @@ span{
 
 .fondo-tarje{
     background-image: url(../img/1116781.jpg);
+    
+}
+
+.heade{
+    height: 25vh;
+}
+
+.main{
+    min-height: 70vh;
+    
+}
+
+.footer{
+    height: 5vh;
 }
