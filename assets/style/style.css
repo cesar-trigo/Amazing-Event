@@ -15,15 +15,15 @@ span{
     
 }
 
-.heade{
+header{
     height: 25vh;
 }
 
-.main{
+main{
     min-height: 70vh;
     
 }
 
-.footer{
+footer{
     height: 5vh;
 }
