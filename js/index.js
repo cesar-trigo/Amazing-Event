@@ -1,7 +1,27 @@
 let contenedorTarjet = document.getElementById("container");
 let datos = data.events;
+
 let buscador = document.getElementById("searchJS");
 let contenedorcheckbox = document.getElementById("checkboxJS");
+
+
+
+async function getData(){
+    try{
+        await fetch("https://mind-hub.up.railway.app/amazing")
+
+        
+    } catch(error){
+    }
+    
+    
+}
+
+
+
+
+
+
 
 
 //FUNCION PARA IMPRIMIR CARD
@@ -71,17 +91,16 @@ imprimirr(addcheckbox, contenedorcheckbox)
 
 //EVENTO DE LOS CHECKBOX
 
-let categorias = []
-contenedorcheckbox.addEventListener("change", event => {
-    if (event.target.checked) {
-        categorias = categorias.concat(datos.filter(checkBox => checkBox.category.toLowerCase().includes(event.target.id.toLowerCase())))
-        contenedorTarjet.innerHTML = ""
-        imprimir(categorias, contenedorTarjet)
-    } else if
+let categorias = [] //creo variable vacia para guardar mas adelanten
+contenedorcheckbox.addEventListener("change", event => { //le pongo donde se produce el evento de enventos tipo change y que cuando ocurra el evento 
+    if (event.target.checked) { //pregunta si el evento esta checked 
+        categorias = categorias.concat(datos.filter(checkBox => checkBox.category.toLowerCase().includes(event.target.id.toLowerCase()))) //se compara si el nombre de la categoria coincide con lo que escriben
+        contenedorTarjet.innerHTML = "" //va vaciar el con contenedor de las tarjetas a trasves del inerHTML
+        imprimir(categorias, contenedorTarjet) //luego le asingno valores a la funcion de imprimir 
+    } else if// 
         (!event.target.checked) {
-        categorias = categorias.filter(
-            (checkBox) => checkBox.category.toLowerCase() !== event.target.value.toLowerCase()
-        )
+        categorias = categorias.filter(checkBox => checkBox.category.toLowerCase() !== event.target.value.toLowerCase())
+            
         contenedorTarjet.innerHTML = ""
         imprimir(categorias, contenedorTarjet)
     }
