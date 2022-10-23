@@ -1,7 +1,9 @@
 let details = document.getElementById("details");
-let detailsUpcoming = document.getElementById("detailsUpcoming");
+
 
 let eventos = data.events
+
+
 let idEvent = location.search.slice(4)
 console.log(idEvent);
 let eventsFilter = eventos.filter(event => idEvent == event._id)
@@ -12,9 +14,9 @@ inprecionDitails(eventsFilter)
 
 
 function inprecionDitails(event) {
-    if (event.assistance === undefined){
-            details.innerHTML =
-        `
+    if (event.assistance === undefined) {
+        details.innerHTML =
+            `
     <div class="row g-0 rounded-5" style="height: 100%;">
     <div class="col-md-6 rounded-5">
         <img src="${event.image}" class="col-md-12 rounded-4" alt="${event.name}"
@@ -34,8 +36,8 @@ function inprecionDitails(event) {
     </div>
     </div>
     `
-}else if (event.estimate === undefined){
-            details.innerHTML =
+    } else {
+        details.innerHTML =
             `
             <div class="row g-0 rounded-5" style="height: 100%;">
             <div class="col-md-6 rounded-5">
@@ -56,7 +58,7 @@ function inprecionDitails(event) {
             </div>
             </div>
             `
-}
+    }
 }
 
 
