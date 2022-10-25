@@ -4,10 +4,8 @@ let $checkobox = document.getElementById("checkboxJS");
 
 let $buscador = document.getElementById("searchJS");
 
-
-
 let eventos;
-fetch('https://amazing-events.herokuapp.com/api/events')
+fetch('https://mh-amazing.herokuapp.com/amazing')
     .then( data => data.json() )
     .then( res => {
     eventos = res.events;
@@ -17,11 +15,12 @@ fetch('https://amazing-events.herokuapp.com/api/events')
     $checkobox.addEventListener( 'change', filtrar )
     })
     
+    console.log(eventos);
 
 
 function crearCheckbox( eventos , contenedor ){
     let fn = eventos => eventos.category
-    let categorias = new Set(eventos.filter( fn ).map( fn ))
+    let categorias = new Set(eventos.map( fn ))
     categorias.forEach(even =>{
         contenedor.innerHTML += 
         `
@@ -54,7 +53,7 @@ function crearCard(eventos) {
                     <p class="card-text">${eventos.category}</p>
                     <div class="row">
                         <p class="card-text col-md-6"><small class="text-muted ">price: $ ${eventos.price}</small></p>
-                        <a href="./details.html?id=${eventos._id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
+                        <a href="./details.html?id=${eventos.id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
                     </div>
                 </div>
             </div>
