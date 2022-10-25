@@ -79,7 +79,7 @@ function imprecionTab2(array, contenedor) {
         `
         <tr >
             <td >${element.category}</td>
-            <td >${element.ganancia}</td>
+            <td >$${element.ganancia}</td>
             <td >${element.promedio}%</td>     
         </tr>
         `
