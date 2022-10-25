@@ -46,46 +46,44 @@
     </header>
     <main class=" d-flex flex-column align-items-center">
         <h1 class=" colorDetexto text-center bg-dark col-12">Stats</h1>
-        <div class=" col-9 ">
-            <table class="table bg-light table-bordered border-secondary">
+        <div class="tablit col-9 ">
+            <table class=" table bg-light table-bordered border-secondary">
                 <thead class="colorDeFondo">
                     <tr>
                         <th colspan="3">Events statistics</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider table-dark ">
+                <tbody class="table-group-divider table-dark " id="tabla1js">
                     <tr>
                         <td>Events with the highest percentage of attendance</td>
                         <td>Events with the lowest percentage of attendance</td>
                         <td>Event with larger capacity</td>
                     </tr>
                 </tbody>
-            </table>
-            <table class="table bg-light table-bordered border-secondary">
+
                 <thead class="colorDeFondo">
                     <tr>
                         <th colspan="3">Upcoming events statistics by category</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider table-dark ">
+                <tbody class="table-group-divider table-dark " id="tabla2js">
                     <tr>
                         <td>Categories</td>
                         <td>Revenues</td>
                         <td>percentage of attendance</td>
                     </tr>
                 </tbody>
-            </table>
-            <table class="table bg-light table-bordered border-secondary">
+
                 <thead class="colorDeFondo">
                     <tr>
                         <th colspan="3">Past Events statistic by category</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider table-dark">
+                <tbody class="table-group-divider table-dark" id="tabla3js">
                     <tr>
-                        <td>Categories</td>
-                        <td>Revenues</td>
-                        <td>percentage of attendance</td>
+                        <td class="semibold">Categories</td>
+                        <td class="semibold">Revenues</td>
+                        <td class="semibold">percentage of attendance</td>
                     </tr>
                 </tbody>
             </table>
@@ -106,7 +104,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-        </script>
+    </script>
+    <script src="./js/stats.js"></script>
 </body>
-
 </html>
