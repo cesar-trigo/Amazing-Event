@@ -15,6 +15,17 @@ span{
     
 }
 
+.card{
+    margin: 1.5rem;
+}
+.imgDitails{
+    object-fit: cover;
+}
+
+.tablit{
+    margin: 4rem;
+}
+
 .tamano{
     max-width: 540px !important;
 }
