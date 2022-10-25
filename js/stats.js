@@ -28,7 +28,7 @@ fetch('https://mh-amazing.herokuapp.com/amazing')
         let menorAsistencia = asistenciaOrdenada[0]
         let mayorAsistencia = asistenciaOrdenada[asistenciaOrdenada.length - 1]
         let mayorCapacidad = capacidadOrdenada[capacidadOrdenada.length - 1]
-        imprecionTab1($contenedorDeTabla1, menorAsistencia, mayorAsistencia, mayorCapacidad)
+        imprecionTab1($contenedorDeTabla1,mayorAsistencia,menorAsistencia, mayorCapacidad)
 }
 
 function imprecionTab1(contenedor, obj1, obj2, obj3) {
