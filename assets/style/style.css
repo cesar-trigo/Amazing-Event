@@ -1,0 +1,44 @@
+span{
+    color: #D70269;
+}
+
+.colorDeFondo{
+    background-color: #D70269;
+}
+
+.colorDetexto{
+    color: #D70269;
+}
+
+.fondo-tarje{
+    background-image: url(../img/1116781.jpg);
+    
+}
+
+.card{
+    margin: 1.5rem;
+}
+.imgDitails{
+    object-fit: cover;
+}
+
+.tablit{
+    margin: 4rem;
+}
+
+.tamano{
+    max-width: 540px !important;
+}
+
+header{
+    min-height: 25vh;
+}
+
+main{
+    min-height: 70vh;
+    
+}
+
+footer{
+    height: 5vh;
+}
