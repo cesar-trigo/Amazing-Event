@@ -78,7 +78,7 @@ function imprimirCards( eventos, contenedor){
 
 
 function filtrar(){
-    let checked = [...document.querySelectorAll( 'input[type="checkbox"]:checked' )].map( ele => ele.value)
+    let checked = [...document.querySelectorAll( 'input[type="checkbox"]:checked' )].map( event => event.value)
     let filtradosPor = eventos.filter( evento => checked.includes( evento.category ) || checked.length === 0)
     let filtradosPorSearch = filtradosPor.filter( evento => evento.name.toLowerCase().includes( $buscador.value.toLowerCase()))
     imprimirCards(filtradosPorSearch, $cards)

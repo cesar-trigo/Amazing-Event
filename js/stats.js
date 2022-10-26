@@ -31,13 +31,13 @@ fetch('https://mh-amazing.herokuapp.com/amazing')
         imprecionTab1($contenedorDeTabla1,mayorAsistencia,menorAsistencia, mayorCapacidad)
 }
 
-function imprecionTab1(contenedor, obj1, obj2, obj3) {
+function imprecionTab1(contenedor, objeto1, objeto2, objeto3) {
     contenedor.innerHTML += 
     `
     <tr>
-        <td>${obj1.name}</td> 
-        <td>${obj2.name}</td>
-        <td>${obj3.name}</td>
+        <td>${objeto1.name}</td> 
+        <td>${objeto2.name}</td>
+        <td>${objeto3.name}</td>
     </tr>
     `
 }
@@ -49,9 +49,9 @@ function stats(fechaEvento,propiedad,contenedor) {
     let categories = Array.from(new Set(fechaEvento.map(event => event.category)))
     let stats = categories.map(categ => {
         let filter = fechaEvento.filter(event => event.category === categ)
-        return calculoTablaSecun(filter,propiedad)
+        return calculoTablaSecun(filter,propiedad)// se arma returna el estasts de abajo
     })
-    imprecionTab2(stats,contenedor)
+    imprecionTab2(stats,contenedor) //recien cuando retorno el stat de abajo 
 }
 
 function  calculoTablaSecun  (array,propiedad){
@@ -61,7 +61,7 @@ function  calculoTablaSecun  (array,propiedad){
         capacity: 0,
         [propiedad]: 0
     }
-    let stats = array.reduce((element1,element2) => {
+    let stats = array.reduce((element1,element2) => { // es un acomulador
         return {
             category: element2.category,
             ganancia: element1.ganancia + element2.ganancia,
