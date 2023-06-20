@@ -6,26 +6,27 @@ let $buscador = document.getElementById("searchJS");
 
 let upcomingEvents;
 
-fetch('https://mh-amazing.herokuapp.com/amazing')
-    .then( data => data.json())
-    .then( res => {
-    eventos = res.events;
-    upcomingEvents = eventos.filter(event => res.date < event.date)
-    crearCheckbox( upcomingEvents,$checkobox)
-    imprimirCards( upcomingEvents,$cards)
-    $buscador.addEventListener( 'keyup', filtrar )
-    $checkobox.addEventListener( 'change', filtrar )
+fetch('https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events')
+    .then(data => data.json())
+    .then(res => {
+        eventos = res;
+        const currentDate = "2022-01-01"
+        upcomingEvents = eventos.filter(event => currentDate < event.date)
+        crearCheckbox(upcomingEvents, $checkobox)
+        imprimirCards(upcomingEvents, $cards)
+        $buscador.addEventListener('keyup', filtrar)
+        $checkobox.addEventListener('change', filtrar)
     })
 
 
 //funcion para crear checkbox
 
-function crearCheckbox( eventos , contenedor ){
+function crearCheckbox(eventos, contenedor) {
     let fn = eventos => eventos.category
-    let categorias = new Set(eventos.map( fn ))
-    categorias.forEach(even =>{
-        contenedor.innerHTML += 
-        `
+    let categorias = new Set(eventos.map(fn))
+    categorias.forEach(even => {
+        contenedor.innerHTML +=
+            `
         <div class="form-check form-check-inline">
             <input class="form-check-input checkBoxClass" type="checkbox" id="${even}" value="${even}">
             <label class="form-check-label text-light" for="${even}">${even}</label>
@@ -42,7 +43,7 @@ function crearCard(eventos) {
     section.classList = 'colorDetexto tamano card mb-3 p-0 rounded-5  bg-dark'
     section.innerHTML +=
 
-            `
+        `
         <div class="row g-0" style="height: 100%;">
             <div class="col-md-4 ">
                 <img src="${eventos.image}" class="col-md-12 rounded-5" alt="${eventos.name}"
@@ -60,28 +61,28 @@ function crearCard(eventos) {
             </div>
         </div> 
         `
-        return section
-    }
+    return section
+}
 
 // funcion para imprimir cards
 
-function imprimirCards( eventos, contenedor){
+function imprimirCards(eventos, contenedor) {
     contenedor.innerHTML = ''
-    if(eventos.length > 0) {
+    if (eventos.length > 0) {
         let fragment = document.createDocumentFragment()
-        eventos.forEach( eventos => fragment.appendChild( crearCard(eventos,contenedor) ) )
+        eventos.forEach(eventos => fragment.appendChild(crearCard(eventos, contenedor)))
         contenedor.appendChild(fragment)
-    }else{
+    } else {
         contenedor.innerHTML = '<h4>error</h4>'
     }
 }
 
 //funcion para filtrar
 
-function filtrar(){
-    let checked = [...document.querySelectorAll( 'input[type="checkbox"]:checked' )].map( ele => ele.value)
-    let filtradosPor = upcomingEvents.filter( evento => checked.includes( evento.category ) || checked.length === 0)
-    let filtradosPorSearch = filtradosPor.filter( evento => evento.name.toLowerCase().includes( $buscador.value.toLowerCase()))
+function filtrar() {
+    let checked = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(ele => ele.value)
+    let filtradosPor = upcomingEvents.filter(evento => checked.includes(evento.category) || checked.length === 0)
+    let filtradosPorSearch = filtradosPor.filter(evento => evento.name.toLowerCase().includes($buscador.value.toLowerCase()))
     imprimirCards(filtradosPorSearch, $cards)
 }
 
