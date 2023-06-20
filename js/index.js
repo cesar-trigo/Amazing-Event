@@ -5,25 +5,42 @@ let $checkobox = document.getElementById("checkboxJS");
 let $buscador = document.getElementById("searchJS");
 
 let eventos;
-fetch('https://mh-amazing.herokuapp.com/amazing')
-    .then( data => data.json() )
-    .then( res => {
-    eventos = res.events;
-    crearCheckbox( eventos,$checkobox)
-    imprimirCards( eventos,$cards)
-    $buscador.addEventListener( 'keyup', filtrar )
-    $checkobox.addEventListener( 'change', filtrar )
+
+
+fetch('https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events')
+    .then(data => data.json())
+    .then(res => {
+        eventos = res
+        crearCheckbox(eventos, $checkobox)
+        imprimirCards(eventos, $cards)
+        $buscador.addEventListener('keyup', filtrar)
+        $checkobox.addEventListener('change', filtrar)
     })
-    
-    console.log(eventos);
+    .catch(err => console.log(err))
+
+console.log(eventos)
+
+/* 
+async function getDatos() {
+    try {
+        let res = await fetch("https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events");
+        let data = await res.json();
+        eventos = data;
+    } catch (error) {
+        console.log(error)
+    }
+}
+ */
 
 
-function crearCheckbox( eventos , contenedor ){
+
+
+function crearCheckbox(eventos, contenedor) {
     let fn = eventos => eventos.category
-    let categorias = new Set(eventos.map( fn ))
-    categorias.forEach(even =>{
-        contenedor.innerHTML += 
-        `
+    let categorias = new Set(eventos.map(fn))
+    categorias.forEach(even => {
+        contenedor.innerHTML +=
+            `
         <div class="form-check form-check-inline">
             <input class="form-check-input checkBoxClass" type="checkbox" id="${even}" value="${even}">
             <label class="form-check-label text-light" for="${even}">${even}</label>
@@ -40,7 +57,7 @@ function crearCard(eventos) {
     section.classList = 'colorDetexto tamano card mb-3 p-0 rounded-5  bg-dark'
     section.innerHTML +=
 
-            `
+        `
         
         <div class="row g-0" style="height: 100%;">
             <div class="col-md-4 ">
@@ -60,27 +77,27 @@ function crearCard(eventos) {
         </div> 
         
         `
-        return section
-    }
+    return section
+}
 
 // funcion para imprimir cards
 
-function imprimirCards( eventos, contenedor){
+function imprimirCards(eventos, contenedor) {
     contenedor.innerHTML = ''
-    if(eventos.length > 0) {
+    if (eventos.length > 0) {
         let fragment = document.createDocumentFragment()
-        eventos.forEach( eventos => fragment.appendChild( crearCard(eventos,contenedor) ) )
+        eventos.forEach(eventos => fragment.appendChild(crearCard(eventos, contenedor)))
         contenedor.appendChild(fragment)
-    }else{
+    } else {
         contenedor.innerHTML = '<h4>error</h4>'
     }
 }
 
 
-function filtrar(){
-    let checked = [...document.querySelectorAll( 'input[type="checkbox"]:checked' )].map( eve => eve.value)
-    let filtradosPor = eventos.filter( evento => checked.includes( evento.category ) || checked.length === 0)
-    let filtradosPorSearch = filtradosPor.filter( evento => evento.name.toLowerCase().includes( $buscador.value.toLowerCase()))
+function filtrar() {
+    let checked = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(eve => eve.value)
+    let filtradosPor = eventos.filter(evento => checked.includes(evento.category) || checked.length === 0)
+    let filtradosPorSearch = filtradosPor.filter(evento => evento.name.toLowerCase().includes($buscador.value.toLowerCase()))
     imprimirCards(filtradosPorSearch, $cards)
 }
 
