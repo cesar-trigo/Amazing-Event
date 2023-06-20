@@ -6,11 +6,13 @@ let $buscador = document.getElementById("searchJS");
 
 let pastEvents;
 
-fetch('https://mh-amazing.herokuapp.com/amazing')
+let eventos;
+fetch('https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events')
     .then(data => data.json())
     .then(res => {
-        eventos = res.events;
-        pastEvents = eventos.filter(event => res.date > event.date)
+        eventos = res;
+        const currentDate = "2022-01-01"
+        pastEvents = eventos.filter(event => currentDate > event.date)
         crearCheckbox(pastEvents, $checkobox)
         imprimirCards(pastEvents, $cards)
         $buscador.addEventListener('keyup', filtrar)
