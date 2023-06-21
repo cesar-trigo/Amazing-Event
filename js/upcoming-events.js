@@ -55,7 +55,7 @@ function crearCard(eventos) {
                     <p class="card-text">${eventos.category}</p>
                     <div class="row">
                         <p class="card-text col-md-6"><small class="text-muted ">price: $ ${eventos.price}</small></p>
-                        <a href="./details.html?id=${eventos.id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
+                        <a href="./details.html?id=${eventos._id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
                     </div>
                 </div>
             </div>

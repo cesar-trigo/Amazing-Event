@@ -56,7 +56,7 @@ function crearCard(array) {
                     <p class="card-text">${array.category}</p>
                     <div class="row">
                         <p class="card-text col-md-6"><small class="text-muted ">price: $ ${array.price}</small></p>
-                        <a href="./details.html?id=${array.id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
+                        <a href="./details.html?id=${array._id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
                     </div>
                 </div>
             </div>
