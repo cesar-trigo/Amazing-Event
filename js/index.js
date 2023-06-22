@@ -7,7 +7,7 @@ let $buscador = document.getElementById("searchJS");
 let eventos;
 
 
-fetch('https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events')
+fetch('https://64933f9f428c3d2035d18e78.mockapi.io/amazing-events/event')
     .then(data => data.json())
     .then(res => {
         eventos = res
@@ -17,20 +17,6 @@ fetch('https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events')
         $checkobox.addEventListener('change', filtrar)
     })
     .catch(err => console.log(err))
-
-console.log(eventos)
-
-/* 
-async function getDatos() {
-    try {
-        let res = await fetch("https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events");
-        let data = await res.json();
-        eventos = data;
-    } catch (error) {
-        console.log(error)
-    }
-}
- */
 
 
 
@@ -70,7 +56,7 @@ function crearCard(eventos) {
                     <p class="card-text">${eventos.category}</p>
                     <div class="row">
                         <p class="card-text col-md-6"><small class="text-muted ">price: $ ${eventos.price}</small></p>
-                        <a href="./details.html?id=${eventos.id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
+                        <a href="./details.html?id=${eventos._id}" class=" btn btn-dark col-md-6 rounded-5 align-self-end bg-black">Read more</a>
                     </div>
                 </div>
             </div>
@@ -100,24 +86,3 @@ function filtrar() {
     let filtradosPorSearch = filtradosPor.filter(evento => evento.name.toLowerCase().includes($buscador.value.toLowerCase()))
     imprimirCards(filtradosPorSearch, $cards)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
