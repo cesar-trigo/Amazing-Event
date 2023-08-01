@@ -6,7 +6,7 @@ let $buscador = document.getElementById("searchJS");
 
 let upcomingEvents;
 
-fetch('https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events')
+fetch('https://64933f9f428c3d2035d18e78.mockapi.io/amazing-events/event')
     .then(data => data.json())
     .then(res => {
         eventos = res;
